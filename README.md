@@ -1,8 +1,10 @@
 # Thoth::Tarot
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/thoth/tarot`. To experiment with that code, run `bin/console` for an interactive prompt.
+Welcome to Thoth Tarot Ruby Gem! 
 
-TODO: Delete this and the text above, and describe your gem
+This is a Gem created to consult Thoth Tarot card readings using the CLI.
+
+In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/thoth/tarot`. To experiment with that code, run `bin/console` for an interactive prompt.
 
 ## Installation
 
@@ -22,7 +24,17 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+First select from the menu list.
+
+Major Arcana 
+Wands
+Cups
+Swords
+Disks
+
+Then select the card you wish to know more about.           
+
+After gathering the info from the user it will display all content for the card.
 
 ## Development
 
