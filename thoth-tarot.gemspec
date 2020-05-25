@@ -1,4 +1,4 @@
-require_relative 'lib/thoth/tarot/version'
+require_relative 'config/environment'
 
 Gem::Specification.new do |spec|
   spec.name          = "thoth-tarot"
