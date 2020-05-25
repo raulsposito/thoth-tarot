@@ -1,5 +1,5 @@
 require "bundler/setup"
-require "thoth/tarot"
+require "./config/environment"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
@@ -12,3 +12,4 @@ RSpec.configure do |config|
     c.syntax = :expect
   end
 end
+

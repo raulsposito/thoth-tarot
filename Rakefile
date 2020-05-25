@@ -13,6 +13,6 @@ def reload!
   load_all './lib'
 end
 
-task :console
+task :console do 
   Pry.start 
 end

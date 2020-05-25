@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+Bundler.require 
+
+require_relative "../lib/card.rb"
+require_relative "../lib/card_scraper.rb"
