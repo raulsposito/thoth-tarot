@@ -8,7 +8,7 @@ class Card
     card_hash.each do |attribute , value|
       self.send("#{attribute}=", value)
     end
-    @@all << self
+    save
   end
   
   def self.create_from_collection(card_array)
@@ -22,6 +22,10 @@ class Card
       self.send("#{attr}=", value)
     end
     self
+  end
+  
+  def save
+    @@all << self
   end
   
   def self.all
