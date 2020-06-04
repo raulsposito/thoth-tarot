@@ -4,6 +4,10 @@ class Card
   
   @@all = []
   
+  def welcome
+    puts "Welcome to Thoth Tarot CLI"
+  end
+  
   def initialize(card_hash)
     card_hash.each do |attribute , value|
       self.send("#{attribute}=", value)
