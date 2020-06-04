@@ -1,6 +1,3 @@
-require 'nokogiri'
-require 'open-uri'
-
 class CardScraper
   
   def self.scrape_index_page(index_url)
