@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 Bundler.require 
 
-require_relative "../lib/card.rb"
-require_relative "../lib/card_scraper.rb"
-require_relative "../lib/command_line_interface.rb
+require 'lib/card.rb'
+require 'lib/card_scraper.rb'
+require 'lib/command_line_interface.rb'
