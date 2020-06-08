@@ -1,4 +1,5 @@
-class CommandLineInterface 
+class ThothTarot::CommandLineInterface 
+  
   BASE_PATH = "https://tarotx.net/tarot-card-meanings/thoth/"
   
   

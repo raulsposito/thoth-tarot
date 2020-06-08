@@ -1,4 +1,4 @@
-class Card 
+class ThothTarot::Card 
   
   attr_accessor :name, :instict, :purpose, :light, :shadow, :qualities
   

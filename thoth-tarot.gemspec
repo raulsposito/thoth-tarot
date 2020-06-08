@@ -2,7 +2,7 @@ require_relative 'config/environment'
 
 Gem::Specification.new do |spec|
   spec.name          = "thoth-tarot"
-  spec.version       = Thoth::Tarot::VERSION
+  spec.version       = ThothTarot::VERSION
   spec.authors       = ["'Raul Sposito'"]
   spec.email         = ["'raulsposito@gmail.com'"]
 

@@ -1,5 +1,3 @@
-module Thoth
-  module Tarot
-    VERSION = "0.1.0"
-  end
+module ThothTarot
+  VERSION = "0.1.0"
 end
