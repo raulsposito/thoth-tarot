@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 Bundler.require 
 
-require 'lib/card.rb'
-require 'lib/card_scraper.rb'
-require 'lib/command_line_interface.rb'
+require 'lib/thoth_tarot/card.rb'
+require 'lib/thoth_tarot/card_scraper.rb'
+require 'lib/thoth_tarot/command_line_interface.rb'

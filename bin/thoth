@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
 
-require 'config/environment'
+require_relative '../lib/thoth_tarot'
 
+ThothTarot::CommandLineInterface.new.run
