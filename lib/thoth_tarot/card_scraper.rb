@@ -10,8 +10,8 @@ class ThothTarot::CardScraper
         else puts card.css('a').attribute('href').value.to_s.delete_prefix!("https://tarotx.net/tarot-card-meanings/thoth/").chomp('.html').split('-').join(' ').capitalize
       end
     end
+    card << self
   end
-  
   
   
   def self.scrape_card_profile(card_profile)
@@ -20,7 +20,7 @@ class ThothTarot::CardScraper
       name = card.css('img').attribute('alt').value
     end
   end
-  binding.pry 
+
       
     #code 
     
