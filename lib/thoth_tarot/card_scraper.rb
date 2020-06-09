@@ -8,7 +8,7 @@ class ThothTarot::CardScraper
       if td.text != ""
       if td.css('img').attribute('alt')
         puts td.css('img').attribute('alt').value
-      else puts td.css('a').attribute('href')value
+      else puts td.css('a').attribute('href').value
     end
   end
   
