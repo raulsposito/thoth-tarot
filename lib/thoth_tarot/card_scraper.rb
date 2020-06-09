@@ -13,7 +13,19 @@ class ThothTarot::CardScraper
   end
   
   def self.scrape_card_profile(card_profile)
-    #code 
+    cards = {}
+    doc.css('.tablepress td').each do |card|
+      name = card.css('img').attribute('alt').value
+    end
   end
-  
+  binding.pry 
+      
+    #code 
+    
+    #:name, 
+    #:instict, 
+    #:purpose, 
+    #:light, 
+    #:shadow, 
+    #:qualities
 end
