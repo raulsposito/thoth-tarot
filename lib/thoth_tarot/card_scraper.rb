@@ -29,3 +29,4 @@ class ThothTarot::CardScraper
     #:shadow, 
     #:qualities
 end
+end

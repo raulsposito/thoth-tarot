@@ -10,13 +10,13 @@ class ThothTarot::CommandLineInterface
   end
   
   def make_cards
-    card_array = CardScraper.scrape_index_page(BASE_PATH + 'index.html')
+    card_array = ThothTarot::CardScraper.scrape_index_page(BASE_PATH + 'index.html')
     CardScraper.create_from_collection(card_array)
   end
   
   def add_cards_attributes
     Card.all.each do |c|
-      attributes = CardScraper.scrape_profile_page(BASE_PATH + c.profile_url)
+      attributes = ThothTarot::CardScraper.scrape_profile_page(BASE_PATH + c.profile_url)
       c.add_cards_attributes(attributes)
     end
   end
