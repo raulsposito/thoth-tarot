@@ -4,9 +4,6 @@ class ThothTarot::Card
 
   @@all = []
 
-  def welcome
-    puts "Welcome to Thoth Tarot CLI"
-  end
 
   def initialize(name, link, instinct = nil, purpose = nil, light = nil, shadow = nil, qualities = nil)
     @name = name

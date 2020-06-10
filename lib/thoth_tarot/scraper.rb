@@ -16,12 +16,27 @@ class ThothTarot::Scraper
     #binding.pry
   end
 
-
-  def self.scrape_card_profile(card)
+#here i should go thru the attributes and make a hash to then handle
+  def self.scrape_card_profile(card_profile)
     cards = {}
-    doc.css('.tablepress td').each do |card|
-      name = card.css('img').attribute('alt').value
+    profile_url = Nokogiri::HTML(open(card_profile))
+    attr = profile_url.css('.tablepress tr').each do |tr|
+      tr.each do |a|
+        if a.include?("instinct")
+          card[:instinct] = instinct
+        elsif a.include?("purpose")
+          card[:purpose] = purpose
+        elsif a.include?("light")
+          card[:light] = light
+        elsif a.include?("shadow")
+          card[:shadow] = shadow
+        elsif a.include?("qualities")
+          card[:qualities] = qualities
+        end
+        #here I can add other content scraped outside the table.
+      end
     end
+
   end
 
 
