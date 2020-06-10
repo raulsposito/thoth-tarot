@@ -1,26 +1,26 @@
-class ThothTarot::CommandLineInterface 
-  
+class ThothTarot::CommandLineInterface
+
   BASE_PATH = "https://tarotx.net/tarot-card-meanings/thoth/"
-  
-  
-  def run 
+
+
+  def run
     make_cards
     add_cards_attributes
     display_cards
   end
-  
+
   def make_cards
-    card_array = ThothTarot::Scraper.scrape_index_page(BASE_PATH + 'index.html')
-    ThothTarot::Scraper.create_from_collection(card_array)
+    ThothTarot::Scraper.scrape_index_page(BASE_PATH)
+    binding.pry
   end
-  
+
   def add_cards_attributes
     ThothTarot::Card.all.each do |c|
       attributes = ThothTarot::Scraper.scrape_profile_page(BASE_PATH + c.profile_url)
       c.add_cards_attributes(attributes)
     end
   end
-  
+
   def display_cards
     ThothTarot::Card.all.each do |c|
       puts "#{c.name.upcase}".colorize(:purple)
@@ -32,6 +32,6 @@ class ThothTarot::CommandLineInterface
       puts "*******************".colorize(:red)
     end
   end
-  
-  
+
+
 end
