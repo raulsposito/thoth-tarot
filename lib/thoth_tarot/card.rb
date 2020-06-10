@@ -1,6 +1,6 @@
 class ThothTarot::Card
 
-  attr_accessor :name, :instict, :purpose, :light, :shadow, :qualities
+  attr_accessor :name, :link, :instict, :purpose, :light, :shadow, :qualities
 
   @@all = []
 

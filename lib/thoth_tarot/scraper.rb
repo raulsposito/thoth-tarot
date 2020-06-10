@@ -39,14 +39,5 @@ class ThothTarot::Scraper
 
   end
 
-
-    #code
-
-    #:name,
-    #:instict,
-    #:purpose,
-    #:light,
-    #:shadow,
-    #:qualities
 end
 end
