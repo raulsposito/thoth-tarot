@@ -8,12 +8,17 @@ class ThothTarot::Card
     puts "Welcome to Thoth Tarot CLI"
   end
   
-  def initialize(card_hash)
-    card_hash.each do |attribute , value|
-      self.send("#{attribute}=", value)
-    end
+  def initialize(name, instinct = nil, purpose = nil, light = nil, shadow = nil, qualities = nil)
+    @name = name 
+    @instict = instict 
+    @purpose = purpose 
+    @light = light 
+    @shadow = shadow 
+    @qualities = qualities
     save
   end
+
+  
   
   def self.create_from_collection(card_array)
     card_array.each do |card_hash|
