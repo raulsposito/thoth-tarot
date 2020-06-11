@@ -19,8 +19,9 @@ class ThothTarot::Scraper
 #here i should go thru the attributes and make a hash to then handle
   def self.scrape_card_profile(card_profile)
     cards = {}
+    binding.pry
     profile_url = Nokogiri::HTML(open(card_profile))
-    attr = profile_url.css('.tablepress tr').each do |tr|
+    attributes = profile_url.css('.tablepress tr').each do |tr|
       tr.each do |a|
         if a.include?("instinct")
           card[:instinct] = instinct
