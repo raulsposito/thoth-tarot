@@ -2,11 +2,6 @@ class ThothTarot::CommandLineInterface
 
   BASE_PATH = "https://tarotx.net/tarot-card-meanings/thoth/"
 
-  #Need to look into the Cards link attribute
-  profile_url = ThothTarot::Card.all.select {:link}
-
-#There is a problem UP HERE ^^^^^^
-
   def welcome
     puts "Welcome to Thoth Tarot CLI"
   end
@@ -14,7 +9,9 @@ class ThothTarot::CommandLineInterface
   def run
     welcome
     make_cards
-    #add_cards_attributes
+    binding.pry
+    add_cards_attributes
+    binding.pry
     display_cards
   end
 
@@ -23,12 +20,14 @@ class ThothTarot::CommandLineInterface
     #binding.pry
   end
 
+
   def add_cards_attributes
-    ThothTarot::Card.all.each do |c|
-      attributes = ThothTarot::Scraper.scrape_profile_page(BASE_PATH + c.profile_url)
-      c.add_cards_attributes(attributes)
+    ThothTarot::Card.all.each do |card|
+      attributes = ThothTarot::Scraper.scrape_card_profile(card.profile_url)
+      card.add_card_attributes(attributes)
     end
   end
+
 
   def display_cards
     ThothTarot::Card.all.each do |c|

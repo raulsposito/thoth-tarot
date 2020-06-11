@@ -16,17 +16,17 @@ class ThothTarot::Card
     save
   end
 
-
-  def self.create_from_collection(card_array)
-    binding.pry
-    card_array.each do |card_hash|
-      Card.new(card_hash)
-    end
-  end
+  #Is this even used>>???
+  #def self.create_from_collection(card_array)
+  #  binding.pry
+  #  card_array.each do |card_hash|
+  #    Card.new(card_hash)
+  #  end
+  #end
 
   def add_card_attributes(attributes_hash)
     attributes_hash.each do |attr, value|
-      self.send("#{attr}=", value)
+      self.send("#{attr}", value)
     end
     self
   end
