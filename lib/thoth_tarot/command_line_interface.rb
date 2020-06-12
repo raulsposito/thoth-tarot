@@ -36,7 +36,7 @@ class ThothTarot::CommandLineInterface
 
   def add_cards_attributes
     ThothTarot::Card.all.each do |card|
-      attributes = ThothTarot::Scraper.scrape_card_profile(profile_url)
+      attributes = ThothTarot::Scraper.scrape_card_profile(card.link)
       card.add_card_attributes(attributes)
     end
   end

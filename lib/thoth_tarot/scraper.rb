@@ -28,7 +28,7 @@ class ThothTarot::Scraper
         elsif a.include?("purpose")
           card[:purpose] = purpose.value
         elsif a.include?("light")
-          card[:light] = lightl.value
+          card[:light] = light.value
         elsif a.include?("shadow")
           card[:shadow] = shadow.value
         elsif a.include?("qualities")
