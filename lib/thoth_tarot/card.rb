@@ -1,6 +1,6 @@
 class ThothTarot::Card
 
-  attr_accessor :name, :link, :instict, :purpose, :light, :shadow, :qualities
+  attr_accessor :name, :link, :instinct, :purpose, :light, :shadow, :qualities
 
   @@all = []
 
@@ -8,7 +8,7 @@ class ThothTarot::Card
   def initialize(name, link, instinct = nil, purpose = nil, light = nil, shadow = nil, qualities = nil)
     @name = name
     @link = link
-    @instict = instict
+    @instinct = instinct
     @purpose = purpose
     @light = light
     @shadow = shadow
