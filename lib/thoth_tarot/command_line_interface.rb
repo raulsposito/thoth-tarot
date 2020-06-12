@@ -32,7 +32,7 @@ class ThothTarot::CommandLineInterface
     make_cards
     #start
     add_cards_attributes
-    binding.pry
+    #binding.pry
     display_cards
   end
 
@@ -45,7 +45,7 @@ class ThothTarot::CommandLineInterface
   def add_cards_attributes
     ThothTarot::Card.all.each do |card|
       attributes = ThothTarot::Scraper.scrape_card_profile(card)
-      card.add_card_attributes(attributes)
+      #card.add_card_attributes(attributes)
     end
   end
 
@@ -54,11 +54,7 @@ class ThothTarot::CommandLineInterface
     ThothTarot::Card.all.each do |c|
       puts "*******************".colorize(:red)
       puts "#{c.name.upcase}".colorize(:purple)
-      puts " Instinct:".colorize(:light_blue) + " #{c.instinct}"
-      puts " Purpose:".colorize(:light_blue) + " #{c.purpose}"
-      puts " The Light".colorize(:light_blue) + " #{c.the_light}"
-      puts " The Shadow".colorize(:light_blue) + " #{c.the_shadow}"
-      puts " Qualities".colorize(:light_blue) + " #{c.qualities}"
+      puts " Profile:".colorize(:light_blue) + " #{c.profile}"
       puts "*******************".colorize(:red)
     end
   end

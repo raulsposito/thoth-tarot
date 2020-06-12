@@ -1,18 +1,14 @@
 class ThothTarot::Card
 
-  attr_accessor :name, :link, :instinct, :purpose, :light, :shadow, :qualities
+  attr_accessor :name, :link, :profile
 
   @@all = []
 
 
-  def initialize(name, link, instinct = nil, purpose = nil, light = nil, shadow = nil, qualities = nil)
+  def initialize(name, link, profile = nil)
     @name = name
     @link = link
-    @instinct = instinct
-    @purpose = purpose
-    @light = light
-    @shadow = shadow
-    @qualities = qualities
+    @profile = profile
     save
   end
 
@@ -24,12 +20,12 @@ class ThothTarot::Card
   #  end
   #end
 
-  def add_card_attributes(attributes)
-    attributes.each do |attr, value|
-      self.send("#{attr}", value)
-    end
-    self
-  end
+  #def add_card_attributes(attributes)
+  #  attributes.each do |attr, value|
+  #    self.send("#{attr}", value)
+  #  end
+  #  self
+  #end
 
   def save
     @@all << self

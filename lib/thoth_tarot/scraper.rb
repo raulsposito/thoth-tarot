@@ -21,14 +21,12 @@ class ThothTarot::Scraper
   def self.scrape_card_profile(card)
     attributes = {}
     profile_url = Nokogiri::HTML(open("#{card.link}"))
-    attributes = profile_url.css('.tablepress tr').each do |tr|
+    attributes = profile_url.css('.tablepress').each do |tr|
       #binding.pry
-      instinct = tr.css('.column-2').text
-      card.send("instinct=", "#{instinct}")
-
+      profile = tr.css('.column-2').text
       binding.pry
-      #self[:instinct].send(tr.css('.column-2').text)
-      #card[:instinct] = tr.css('.column-2').text
+      card.send("profile=", "#{profile}")
+      #binding.pry
     end
     binding.pry
   end
