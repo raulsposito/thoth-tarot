@@ -15,14 +15,22 @@ class ThothTarot::CommandLineInterface
     puts "                                    "
     puts "************************************".colorize(:blue)
     puts "************************************".colorize(:blue)
-
-
   end
+
+  #def start
+  #  puts "What card you wish to know more about?"
+  #  input = gets.strip.to_i
+  #  print_card(input)
+  #end
+
+  #def print_card(card)
+
+  #end
 
   def run
     welcome
     make_cards
-    binding.pry
+    #start
     add_cards_attributes
     binding.pry
     display_cards
@@ -36,7 +44,7 @@ class ThothTarot::CommandLineInterface
 
   def add_cards_attributes
     ThothTarot::Card.all.each do |card|
-      attributes = ThothTarot::Scraper.scrape_card_profile(card.link)
+      attributes = ThothTarot::Scraper.scrape_card_profile(card)
       card.add_card_attributes(attributes)
     end
   end
@@ -46,11 +54,11 @@ class ThothTarot::CommandLineInterface
     ThothTarot::Card.all.each do |c|
       puts "*******************".colorize(:red)
       puts "#{c.name.upcase}".colorize(:purple)
-      #puts " Instinct:".colorize(:light_blue) + " #{c.instinct}"
-      #puts " Purpose:".colorize(:light_blue) + " #{c.purpose}"
-      #puts " The Light".colorize(:light_blue) + " #{c.the_light}"
-      #puts " The Shadow".colorize(:light_blue) + " #{c.the_shadow}"
-      #puts " Qualities".colorize(:light_blue) + " #{c.qualities}"
+      puts " Instinct:".colorize(:light_blue) + " #{c.instinct}"
+      puts " Purpose:".colorize(:light_blue) + " #{c.purpose}"
+      puts " The Light".colorize(:light_blue) + " #{c.the_light}"
+      puts " The Shadow".colorize(:light_blue) + " #{c.the_shadow}"
+      puts " Qualities".colorize(:light_blue) + " #{c.qualities}"
       puts "*******************".colorize(:red)
     end
   end

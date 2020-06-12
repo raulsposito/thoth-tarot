@@ -24,8 +24,8 @@ class ThothTarot::Card
   #  end
   #end
 
-  def add_card_attributes(attributes_hash)
-    attributes_hash.each do |attr, value|
+  def add_card_attributes(attributes)
+    attributes.each do |attr, value|
       self.send("#{attr}", value)
     end
     self
