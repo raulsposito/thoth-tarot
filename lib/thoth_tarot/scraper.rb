@@ -18,7 +18,7 @@ class ThothTarot::Scraper
 
 ##This Scraper needs to be refactored
   def self.scrape_card_profile(card)
-    cards = {}
+    attributes = {}
     binding.pry
     profile_url = Nokogiri::HTML(open("#{card.link}"))
     attributes = profile_url.css('.tablepress tr').each do |tr|

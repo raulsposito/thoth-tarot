@@ -3,7 +3,20 @@ class ThothTarot::CommandLineInterface
   BASE_PATH = "https://tarotx.net/tarot-card-meanings/thoth/"
 
   def welcome
-    puts "Welcome to Thoth Tarot CLI"
+    puts "************************************".colorize(:blue)
+    puts "************************************".colorize(:blue)
+    puts "                                    "
+    puts "     Welcome to Thoth Tarot CLI     ".colorize(:purple)
+    puts "                                    "
+    puts "               ✯                   ".colorize(:red)
+    puts "                                    "
+    puts "'Every man and every woman is a star'".colorize(:blue)
+    puts "        A.C. Book of Thoth          ".colorize(:blue)
+    puts "                                    "
+    puts "************************************".colorize(:blue)
+    puts "************************************".colorize(:blue)
+
+
   end
 
   def run
@@ -23,7 +36,7 @@ class ThothTarot::CommandLineInterface
 
   def add_cards_attributes
     ThothTarot::Card.all.each do |card|
-      attributes = ThothTarot::Scraper.scrape_card_profile(card.profile_url)
+      attributes = ThothTarot::Scraper.scrape_card_profile(profile_url)
       card.add_card_attributes(attributes)
     end
   end
