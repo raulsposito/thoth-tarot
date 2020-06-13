@@ -6,9 +6,9 @@ class ThothTarot::CommandLineInterface
     puts "************************************".colorize(:blue)
     puts "************************************".colorize(:blue)
     puts "                                    "
-    puts "     Welcome to Thoth Tarot CLI     ".colorize(:purple)
+    puts "     Welcome to Thoth Tarot CLI     ".colorize(:white)
     puts "                                    "
-    puts "               ✯                   ".colorize(:red)
+    puts "               ✯                   ".colorize(:magenta)
     puts "                                    "
     puts "'Every man and every woman is a star'".colorize(:blue)
     puts "        A.C. Book of Thoth          ".colorize(:blue)
@@ -21,10 +21,6 @@ class ThothTarot::CommandLineInterface
   #  puts "What card you wish to know more about?"
   #  input = gets.strip.to_i
   #  print_card(input)
-  #end
-
-  #def print_card(card)
-
   #end
 
   def run
