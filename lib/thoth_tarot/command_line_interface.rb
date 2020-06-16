@@ -7,8 +7,7 @@ class ThothTarot::CommandLineInterface
     make_cards
     display_cards_list
     start
-    add_cards_attributes
-    #binding.pry
+    binding.pry
   end
 
   def welcome
@@ -28,35 +27,59 @@ class ThothTarot::CommandLineInterface
 
   def start
     puts "What card you wish to know more about?"
-    input = gets.strip.to_i
-    #Here I would validate users input and select specific card to scrape more about.
-    #CODE MISSSING
-    print_card(input)
+    input = gets.strip.downcase
+
+    card = ThothTarot::Card.find_by_name(input)
+    binding.pry
+    ThothTarot::Scraper.scrape_card_profile(card)
+    binding.pry
+    print_card(card)
+  end
+
+  #def validate_input(input)
+  #  ThothTarot::Card.all.each do |x|
+  #    if x.name.downcase == input
+  #      print_card
+  #    else
+  #      invalid_entry
+  #    end
+  #  end
+  #end
+
+  def invalid_entry
+    random = rand(0..5)
+    if random == 1
+      puts "Ups! Please type a valid card name."
+    elsif random == 2
+      puts "Please enter the card's name as shown."
+    elsif random == 3
+      puts "Sorry! Can you please type again?"
+    elsif random == 4
+      puts "Ooops! Seems like something went wrong. Type one more time."
+    else puts "Say what? Say what???"
+    end
+    #start
   end
 
   def make_cards
     ThothTarot::Scraper.scrape_index_page(BASE_PATH)
-    #binding.pry
   end
 
-  #this is where i left for python class
-  #this code does to things and it should only print the card. logic should be elsewhere
-  def print_card(input)
-    c = ThothTarot::Card.find_by_name(input)
-    c.each do |x|
+  def print_card(card)
+      binding.pry
       puts "*******************".colorize(:red)
-      puts "#{x.name.upcase}".colorize(:blue)
-      puts " Your card is: ".colorize(:light_blue) + " #{x.profile}"
+      puts "#{self.name}".upcase.colorize(:blue)
+      puts " Your card is: #{self.name}".colorize(:light_blue) + " #{self.profile}"
       puts "*******************".colorize(:red)
-    end
   end
 
-  def add_cards_attributes
-    ThothTarot::Card.all.each do |card|
-      attributes = ThothTarot::Scraper.scrape_card_profile(card)
-      #card.add_card_attributes(attributes)
-    end
-  end
+
+  #def add_cards_attributes
+  #  ThothTarot::Card.all.each do |card|
+  #    attributes = ThothTarot::Scraper.scrape_card_profile(card)
+  #    #card.add_card_attributes(attributes)
+  #  end
+  #end
 
 
   def display_cards_list
@@ -66,6 +89,5 @@ class ThothTarot::CommandLineInterface
       puts "*******************".colorize(:red)
     end
   end
-
 
 end
