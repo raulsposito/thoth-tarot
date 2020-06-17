@@ -2,7 +2,6 @@ class ThothTarot::Scraper
 
   def self.scrape_index_page(index_url)
     doc = Nokogiri::HTML(open(index_url))
-    #binding.pry
     doc.css('.tablepress td').each do |card|
       if card.text != ""
         if card.css('img').attribute('alt')
@@ -13,16 +12,14 @@ class ThothTarot::Scraper
       link = card.css('a').attribute('href').value
       ThothTarot::Card.new(name, link)
     end
-    #binding.pry
   end
 
 
 
   def self.scrape_card_profile(card)
-    attributes = {}
-    binding.pry
+    #binding.pry
     profile_url = Nokogiri::HTML(open("#{card.link}"))
-    attributes = profile_url.css('.tablepress').each do |tr|
+    profile_url.css('.tablepress').each do |tr|
       profile = tr.css('.column-2').text
       #binding.pry
       card.send("profile=", "#{profile}")

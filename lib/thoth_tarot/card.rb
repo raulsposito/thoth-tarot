@@ -5,7 +5,7 @@ class ThothTarot::Card
   @@all = []
 
 
-  def initialize(name, link, profile = nil)
+  def initialize(name, link, profile = "There is no information available for this card.")
     @name = name
     @link = link
     @profile = profile
@@ -27,13 +27,15 @@ class ThothTarot::Card
   #  self
   #end
 
+  def self.find_by_index(index)
+    self.all[index-1]
+  end
 
   def self.find_by_name(name)
     ThothTarot::Card.all.select do |specific_card|
       specific_card.name.downcase == name
     end
   end
-
 
   def save
     @@all << self

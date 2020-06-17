@@ -25,26 +25,30 @@ class ThothTarot::CommandLineInterface
     puts "************************************".colorize(:blue)
   end
 
-  def start
-    puts "What card you wish to know more about?"
-    input = gets.strip.downcase
-
-    card = ThothTarot::Card.find_by_name(input)
-    binding.pry
-    ThothTarot::Scraper.scrape_card_profile(card)
-    binding.pry
-    print_card(card)
+  def make_cards
+    ThothTarot::Scraper.scrape_index_page(BASE_PATH)
   end
 
-  #def validate_input(input)
-  #  ThothTarot::Card.all.each do |x|
-  #    if x.name.downcase == input
-  #      print_card
-  #    else
-  #      invalid_entry
-  #    end
-  #  end
-  #end
+  def start
+    puts "What card you wish to know more about?"
+    input = gets.strip
+    card_index = input.to_i - 1
+    card = ThothTarot::Card.all[card_index]
+    if card != ''
+      ThothTarot::Scraper.scrape_card_profile(card)
+      print_card(card)
+    else
+      invalid_entry
+    end
+  end
+
+  def display_cards_list
+    ThothTarot::Card.all.each do |c|
+      puts "*******************".colorize(:red)
+      puts "#{c.name.upcase}".colorize(:blue)
+      puts "*******************".colorize(:red)
+    end
+  end
 
   def invalid_entry
     random = rand(0..5)
@@ -58,36 +62,16 @@ class ThothTarot::CommandLineInterface
       puts "Ooops! Seems like something went wrong. Type one more time."
     else puts "Say what? Say what???"
     end
-    #start
-  end
-
-  def make_cards
-    ThothTarot::Scraper.scrape_index_page(BASE_PATH)
+    start
   end
 
   def print_card(card)
       binding.pry
-      puts "*******************".colorize(:red)
-      puts "#{self.name}".upcase.colorize(:blue)
-      puts " Your card is: #{self.name}".colorize(:light_blue) + " #{self.profile}"
-      puts "*******************".colorize(:red)
-  end
-
-
-  #def add_cards_attributes
-  #  ThothTarot::Card.all.each do |card|
-  #    attributes = ThothTarot::Scraper.scrape_card_profile(card)
-  #    #card.add_card_attributes(attributes)
-  #  end
-  #end
-
-
-  def display_cards_list
-    ThothTarot::Card.all.each do |c|
-      puts "*******************".colorize(:red)
-      puts "#{c.name.upcase}".colorize(:blue)
-      puts "*******************".colorize(:red)
-    end
+      puts "************************************".colorize(:red)
+      puts "#{card.name}".upcase.colorize(:blue)
+      puts " Your card is: #{card.name}".colorize(:light_blue)
+      puts " #{card.profile}".colorize(:white)
+      puts "************************************".colorize(:red)
   end
 
 end
