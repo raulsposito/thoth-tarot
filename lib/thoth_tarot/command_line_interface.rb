@@ -9,10 +9,10 @@ class ThothTarot::CommandLineInterface
     start
   end
 
-  def menu_loop
-    initial
-    start
-  end
+  #def menu_loop
+  #  initial
+  #  start
+  #end
 
   def welcome
     puts "************************************".colorize(:blue)
@@ -33,42 +33,6 @@ class ThothTarot::CommandLineInterface
     ThothTarot::Scraper.scrape_index_page(BASE_PATH)
   end
 
-  def start
-    puts " There are 78 Cards in Thoth Tarot. ".colorize(:white)
-    puts "What card you wish to know more about?".colorize(:white)
-    puts "Please type a number between 0 and 77".colorize(:white)
-    input = gets.strip.to_i
-    card_index = input.to_i
-    card = ThothTarot::Card.all[card_index]
-    #still need to look into this logic, it sometimes doesn't apply if a type anything
-    if input != '' || 0
-      ThothTarot::Scraper.scrape_card_profile(card)
-      print_card(card)
-    elsif input == "exit"
-      exit
-    else
-      invalid_entry
-    end
-    repeat
-  end
-
-  def repeat
-    puts "************************************".colorize(:red)
-    puts "Still curious to know more?".colorize(:white)
-    puts "Please type Y or N".colorize(:white)
-    puts "************************************".colorize(:red)
-    input = gets.strip.downcase
-    if input == "y"
-      menu_loop
-    elsif input == "n"
-      exit
-    elsif
-      input == "exit"
-    else
-      invalid_entry
-    end
-  end
-
   def initial
     puts "Please select the range you wish to view the card's names listing.".colorize(:white)
     puts "0-9, 10-19, 20-29 and so on...".colorize(:white)
@@ -76,6 +40,49 @@ class ThothTarot::CommandLineInterface
     #Needs logic to validate input
     display_cards_list(from_number)
   end
+
+  def start
+      puts " There are 78 Cards in Thoth Tarot. ".colorize(:white)
+      puts "What card you wish to know more about?".colorize(:white)
+      puts "Please type a number between 0 and 77".colorize(:white)
+      input = gets.strip.downcase
+      while input != "exit" do
+        card_index = input.to_i
+        card = ThothTarot::Card.all[card_index]
+        binding.pry
+        #still need to look into this logic, it sometimes doesn't apply if a type anything
+        if input.to_i.between?(0, 77)
+          ThothTarot::Scraper.scrape_card_profile(card)
+          print_card(card)
+          #elsif input == "exit"
+          #  exit
+          #binding.pry
+        else
+          invalid_entry
+        end
+        start
+      end
+      binding.pry
+      #repeat
+  end
+
+
+  #def repeat
+  #  puts "************************************".colorize(:red)
+  #  puts "Still curious to know more?".colorize(:white)
+  #  puts "Please type Y or N".colorize(:white)
+  #  puts "************************************".colorize(:red)
+  #  input = gets.strip.downcase
+  #  if input == "y"
+  #    menu_loop
+  #  elsif input == "n"
+  #    exit
+  #  elsif
+  #    input == "exit"
+  #  else
+  #    invalid_entry
+  #  end
+  #end
 
   def display_cards_list(from_number)
     puts ""
@@ -92,9 +99,10 @@ class ThothTarot::CommandLineInterface
     if input == "y"
       start
     elsif input == "n"
+
       initial
-    elsif input == "exit"
-      exit
+    #elsif input == "exit"
+    #  exit
     else
       invalid_entry
     end
@@ -120,7 +128,8 @@ class ThothTarot::CommandLineInterface
       puts "Ooops! Seems like something went wrong. Type one more time.".colorize(:red)
     else puts "Say what???".colorize(:red)
     end
-    menu_loop
+    start
+    #menu_loop
   end
 
   def print_card(card)
