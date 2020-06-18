@@ -4,6 +4,7 @@ class ThothTarot::CommandLineInterface
 
   def run
     welcome
+    binding.pry
     make_cards
     initial
     start
@@ -15,18 +16,22 @@ class ThothTarot::CommandLineInterface
   #end
 
   def welcome
-    puts "************************************".colorize(:blue)
-    puts "************************************".colorize(:cyan)
+    puts "⚜✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧⚜".colorize(:blue)
+    puts "⚜✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧⚜".colorize(:light_blue)
     puts "                                    "
-    puts "     Welcome to Thoth Tarot CLI     ".colorize(:white)
+    puts "   ☽   🔮 Welcome to Thoth Tarot CLI 🔮   ☾   ".colorize(:cyan)
     puts "                                    "
-    puts "               ✯                   ".colorize(:magenta)
+    puts "             🌛🌖🌗🌑🌓🌔🌕🌜                  ".colorize(:white)
+    puts "                                                    "
+    puts "        ♈♉♊♋♌♍♎♏♐♑♒♓          ".colorize(:light_blue)
     puts "                                    "
-    puts "'Every man and every woman is a star'".colorize(:blue)
-    puts "        A.C. Book of Thoth          ".colorize(:cyan)
+    puts "      'Every man and every woman is a star'".colorize(:cyan)
+    puts "          ✋ 👁 A.C. Book of Thoth ☥          ".colorize(:cyan)
     puts "                                    "
-    puts "************************************".colorize(:cyan)
-    puts "************************************".colorize(:blue)
+    puts "                      ⛤                   ".colorize(:magenta)
+    puts "                                    "
+    puts "⚜✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧⚜".colorize(:light_blue)
+    puts "⚜✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧⚜".colorize(:blue)
   end
 
   def make_cards
