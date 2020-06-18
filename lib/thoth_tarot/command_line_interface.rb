@@ -7,7 +7,11 @@ class ThothTarot::CommandLineInterface
     make_cards
     display_cards_list
     start
-    binding.pry
+  end
+
+  def menu
+    display_cards_list
+    start
   end
 
   def welcome
@@ -31,21 +35,47 @@ class ThothTarot::CommandLineInterface
 
   def start
     puts "What card you wish to know more about?"
-    input = gets.strip
-    card_index = input.to_i - 1
+    puts "Please type a number between 0 and 77"
+    input = gets.strip.to_i
+    card_index = input.to_i
     card = ThothTarot::Card.all[card_index]
-    if card != ''
+    if input != '' || 0
       ThothTarot::Scraper.scrape_card_profile(card)
       print_card(card)
     else
       invalid_entry
     end
+    repeat?
+  end
+
+  def repeat?
+    puts "************************************".colorize(:red)
+    puts "Still curious to know more?".colorize(:white)
+    puts "Please type Y or N".colorize(:white)
+    puts "************************************".colorize(:red)
+    input = gets.strip.downcase
+    if input == "y"
+      menu
+    elsif input == "n"
+      exit
+    else
+      invalid_entry
+    end
+  end
+
+  def exit
+    puts "*********************************************".colorize(:red)
+    puts "Thank you for looking into The Book of Thoth!".colorize(:blue)
+    puts "                                              "
+    puts "We must conquer life by living it to the full.".colorize(:magenta)
+    puts "Aleister Crowley.".colorize(:magenta)
+    puts "*********************************************".colorize(:red)
   end
 
   def display_cards_list
-    ThothTarot::Card.all.each do |c|
+    ThothTarot::Card.all.each_with_index do |c, index|
       puts "*******************".colorize(:red)
-      puts "#{c.name.upcase}".colorize(:blue)
+      puts "#{index}." "#{c.name.upcase}".colorize(:blue)
       puts "*******************".colorize(:red)
     end
   end
@@ -66,7 +96,6 @@ class ThothTarot::CommandLineInterface
   end
 
   def print_card(card)
-      binding.pry
       puts "************************************".colorize(:red)
       puts "#{card.name}".upcase.colorize(:blue)
       puts " Your card is: #{card.name}".colorize(:light_blue)

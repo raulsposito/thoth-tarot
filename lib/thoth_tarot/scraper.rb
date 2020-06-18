@@ -17,14 +17,11 @@ class ThothTarot::Scraper
 
 
   def self.scrape_card_profile(card)
-    #binding.pry
     profile_url = Nokogiri::HTML(open("#{card.link}"))
     profile_url.css('.tablepress').each do |tr|
       profile = tr.css('.column-2').text
-      #binding.pry
       card.send("profile=", "#{profile}")
     end
-    binding.pry
   end
 
 
