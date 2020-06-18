@@ -91,6 +91,16 @@ class ThothTarot::CommandLineInterface
       puts "#{index+from_number}".colorize(:red) + "#{c.name.upcase}". colorize(:blue)
       puts "*******************************************".colorize(:red)
     end
+    puts "Is the card you are looking for in here?".colorize(:white)
+    puts "Please type Y or N"
+    input = gets.strip.downcase
+    if input == "y"
+      start
+    elsif input == "n"
+      initial
+    else
+      invalid_entry
+    end
   end
 
   #def display_cards_list
