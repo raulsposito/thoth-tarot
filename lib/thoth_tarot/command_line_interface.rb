@@ -9,7 +9,7 @@ class ThothTarot::CommandLineInterface
     start
   end
 
-  def menu
+  def menu_loop
     initial
     start
   end
@@ -34,8 +34,9 @@ class ThothTarot::CommandLineInterface
   end
 
   def start
-    puts "What card you wish to know more about?"
-    puts "Please type a number between 0 and 77"
+    puts " There are 78 Cards in Thoth Tarot. ".colorize(:white)
+    puts "What card you wish to know more about?".colorize(:white)
+    puts "Please type a number between 0 and 77".colorize(:white)
     input = gets.strip.to_i
     card_index = input.to_i
     card = ThothTarot::Card.all[card_index]
@@ -43,40 +44,34 @@ class ThothTarot::CommandLineInterface
     if input != '' || 0
       ThothTarot::Scraper.scrape_card_profile(card)
       print_card(card)
+    elsif input == "exit"
+      exit
     else
       invalid_entry
     end
-    repeat?
+    repeat
   end
 
-  def repeat?
+  def repeat
     puts "************************************".colorize(:red)
     puts "Still curious to know more?".colorize(:white)
     puts "Please type Y or N".colorize(:white)
     puts "************************************".colorize(:red)
     input = gets.strip.downcase
     if input == "y"
-      menu
+      menu_loop
     elsif input == "n"
       exit
+    elsif
+      input == "exit"
     else
       invalid_entry
     end
   end
 
-  def exit
-    puts "*********************************************".colorize(:red)
-    puts "Thank you for looking into The Book of Thoth!".colorize(:blue)
-    puts "                                              "
-    puts "We must conquer life by living it to the full.".colorize(:magenta)
-    puts "             Aleister Crowley.               ".colorize(:magenta)
-    puts "*********************************************".colorize(:red)
-  end
-
   def initial
-    puts "There are 78 Cards in Thoth Tarot."
-    puts "Please select the range you wish to view the card's names listing."
-    puts "0-9, 10-19, 20-29 and so on..."
+    puts "Please select the range you wish to view the card's names listing.".colorize(:white)
+    puts "0-9, 10-19, 20-29 and so on...".colorize(:white)
     from_number = gets.strip.to_i
     #Needs logic to validate input
     display_cards_list(from_number)
@@ -98,6 +93,8 @@ class ThothTarot::CommandLineInterface
       start
     elsif input == "n"
       initial
+    elsif input == "exit"
+      exit
     else
       invalid_entry
     end
@@ -114,16 +111,16 @@ class ThothTarot::CommandLineInterface
   def invalid_entry
     random = rand(0..5)
     if random == 1
-      puts "Ups! Please type a valid card."
+      puts "Ups! Please type a valid card.".colorize(:red)
     elsif random == 2
-      puts "Please enter the number as shown."
+      puts "Please enter the number as shown.".colorize(:red)
     elsif random == 3
-      puts "Sorry! Can you please type again?"
+      puts "Sorry! Can you please type again?".colorize(:red)
     elsif random == 4
-      puts "Ooops! Seems like something went wrong. Type one more time."
-    else puts "Say what? Say what???"
+      puts "Ooops! Seems like something went wrong. Type one more time.".colorize(:red)
+    else puts "Say what???".colorize(:red)
     end
-    menu
+    menu_loop
   end
 
   def print_card(card)
@@ -134,4 +131,12 @@ class ThothTarot::CommandLineInterface
       puts "************************************".colorize(:red)
   end
 
+  def exit
+    puts "*********************************************".colorize(:red)
+    puts "Thank you for looking into The Book of Thoth!".colorize(:blue)
+    puts "                                              "
+    puts "We must conquer life by living it to the full.".colorize(:magenta)
+    puts "             Aleister Crowley.               ".colorize(:magenta)
+    puts "*********************************************".colorize(:red)
+  end
 end
