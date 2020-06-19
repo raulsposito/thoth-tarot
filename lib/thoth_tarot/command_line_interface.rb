@@ -100,7 +100,7 @@ class ThothTarot::CommandLineInterface
     puts "                                                   "
     puts "  Thank you for looking into The Book of Thoth!     ".colorize(:white)
     puts "                                                 "
-    puts "  We must conquer life by living it to the full.     ".colorize(:magenta)
+    puts " 'We must conquer life by living it to the full.'     ".colorize(:magenta)
     puts "               Aleister Crowley.                    ".colorize(:magenta)
     puts "⚜✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧⚜".colorize(:light_blue)
     puts "⚜✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧⚜".colorize(:blue)
