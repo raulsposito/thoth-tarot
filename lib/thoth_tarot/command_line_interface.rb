@@ -53,7 +53,7 @@ class ThothTarot::CommandLineInterface
         if input.to_i.between?(0, 77)
           ThothTarot::Scraper.scrape_card_profile(card)
           print_card(card)
-        else
+        else #NEED to check for input in case is a word or anything else!!!
           invalid_entry
         end
         start
@@ -63,9 +63,9 @@ class ThothTarot::CommandLineInterface
 
   def display_cards_list
     ThothTarot::Card.all.each_with_index do |c, index|
-      puts "⚜✦✧✦✧✦✧✦✧✦✧✦✧✦✧⚜".colorize(:red)
+      puts "⚜✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧⚜".colorize(:red)
       puts "#{index}".colorize(:white) + " " + "#{c.name.upcase}".colorize(:blue)
-      puts "⚜✦✧✦✧✦✧✦✧✦✧✦✧✦✧⚜".colorize(:red)
+      puts "⚜✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧⚜".colorize(:red)
       puts ""
       puts ""
     end
@@ -100,11 +100,11 @@ class ThothTarot::CommandLineInterface
   end
 
   def print_card(card)
-      puts "⚜✦✧✦✧✦✧✦✧✦✧✦✧✦✧⚜".colorize(:red)
+      puts "⚜✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧⚜".colorize(:red)
       puts "   #{card.name}".upcase.colorize(:blue)
       puts " Your card is: #{card.name}".colorize(:light_blue)
       puts " #{card.profile}".colorize(:white)
-      puts "⚜✦✧✦✧✦✧✦✧✦✧✦✧✦✧⚜".colorize(:red)
+      puts "⚜✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧⚜".colorize(:red)
   end
 
   def exit
