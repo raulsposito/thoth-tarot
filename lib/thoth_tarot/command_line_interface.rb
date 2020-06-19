@@ -4,7 +4,6 @@ class ThothTarot::CommandLineInterface
 
   def run
     welcome
-    binding.pry
     make_cards
     initial
     start
@@ -54,7 +53,7 @@ class ThothTarot::CommandLineInterface
       while input != "exit" do
         card_index = input.to_i
         card = ThothTarot::Card.all[card_index]
-        binding.pry
+        #binding.pry
         #still need to look into this logic, it sometimes doesn't apply if a type anything
         if input.to_i.between?(0, 77)
           ThothTarot::Scraper.scrape_card_profile(card)
@@ -68,6 +67,7 @@ class ThothTarot::CommandLineInterface
         start
       end
       binding.pry
+      exit
       #repeat
   end
 
@@ -91,26 +91,25 @@ class ThothTarot::CommandLineInterface
 
   def display_cards_list(from_number)
     puts ""
-    puts "Cards from #{from_number} to #{from_number+9}"
+    puts "Cards from #{from_number} to #{from_number+10}"
     puts ""
     ThothTarot::Card.all[from_number, 10].each_with_index do |c, index|
       puts "*******************************************".colorize(:red)
-      puts "#{index+from_number}".colorize(:red) + "#{c.name.upcase}". colorize(:blue)
+      puts "#{index+from_number}".blue.on_red.blink + "#{c.name.upcase}". colorize(:blue)
       puts "*******************************************".colorize(:red)
     end
-    puts "Is the card you are looking for in here?".colorize(:white)
-    puts "Please type Y or N"
-    input = gets.strip.downcase
-    if input == "y"
-      start
-    elsif input == "n"
-
-      initial
-    #elsif input == "exit"
-    #  exit
-    else
-      invalid_entry
-    end
+    #puts "Is the card you are looking for in here?".colorize(:white)
+    #puts "Please type Y or N"
+    #i = gets.strip.downcase
+    #if i == "y"
+    #  start
+    #elsif i == "n"
+    #  initial
+    ##elsif input == "exit"
+    ##  exit
+    #else
+    #  invalid_entry
+    #end
   end
 
   #def display_cards_list
@@ -146,11 +145,14 @@ class ThothTarot::CommandLineInterface
   end
 
   def exit
-    puts "*********************************************".colorize(:red)
-    puts "Thank you for looking into The Book of Thoth!".colorize(:blue)
-    puts "                                              "
-    puts "We must conquer life by living it to the full.".colorize(:magenta)
-    puts "             Aleister Crowley.               ".colorize(:magenta)
-    puts "*********************************************".colorize(:red)
+    puts "⚜✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧⚜".colorize(:blue)
+    puts "⚜✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧⚜".colorize(:light_blue)
+    puts "                                                   "
+    puts "    Thank you for looking into The Book of Thoth!     ".colorize(:white)
+    puts "                                                   "
+    puts "    We must conquer life by living it to the full.     ".colorize(:magenta)
+    puts "                 Aleister Crowley.                    ".colorize(:magenta)
+    puts "⚜✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧⚜".colorize(:light_blue)
+    puts "⚜✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧⚜".colorize(:blue)
   end
 end
