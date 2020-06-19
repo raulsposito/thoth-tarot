@@ -14,8 +14,6 @@ class ThothTarot::Scraper
     end
   end
 
-
-
   def self.scrape_card_profile(card)
     profile_url = Nokogiri::HTML(open("#{card.link}"))
     profile_url.css('.tablepress').each do |tr|
@@ -23,7 +21,5 @@ class ThothTarot::Scraper
       card.send("profile=", "#{profile}")
     end
   end
-
-
 end
 end

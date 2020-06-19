@@ -9,15 +9,11 @@ class ThothTarot::CommandLineInterface
     start
   end
 
-  #def menu_loop
-  #  initial
-  #  start
-  #end
-
   def welcome
     puts "⚜✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧⚜".colorize(:blue)
     puts "⚜✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧⚜".colorize(:light_blue)
-    puts "                                    "
+    puts "                      ☿️                     ".colorize(:magenta)
+    puts "                                                    "
     puts "   ☽   🔮 Welcome to Thoth Tarot CLI 🔮   ☾   ".colorize(:cyan)
     puts "                                    "
     puts "             🌛🌖🌗🌑🌓🌔🌕🌜                  ".colorize(:white)
@@ -53,41 +49,16 @@ class ThothTarot::CommandLineInterface
       while input != "exit" do
         card_index = input.to_i
         card = ThothTarot::Card.all[card_index]
-        #binding.pry
-        #still need to look into this logic, it sometimes doesn't apply if a type anything
         if input.to_i.between?(0, 77)
           ThothTarot::Scraper.scrape_card_profile(card)
           print_card(card)
-          #elsif input == "exit"
-          #  exit
-          #binding.pry
         else
           invalid_entry
         end
         start
       end
-      binding.pry
       exit
-      #repeat
   end
-
-
-  #def repeat
-  #  puts "************************************".colorize(:red)
-  #  puts "Still curious to know more?".colorize(:white)
-  #  puts "Please type Y or N".colorize(:white)
-  #  puts "************************************".colorize(:red)
-  #  input = gets.strip.downcase
-  #  if input == "y"
-  #    menu_loop
-  #  elsif input == "n"
-  #    exit
-  #  elsif
-  #    input == "exit"
-  #  else
-  #    invalid_entry
-  #  end
-  #end
 
   def display_cards_list(from_number)
     puts ""
@@ -98,27 +69,7 @@ class ThothTarot::CommandLineInterface
       puts "#{index+from_number}".blue.on_red.blink + "#{c.name.upcase}". colorize(:blue)
       puts "*******************************************".colorize(:red)
     end
-    #puts "Is the card you are looking for in here?".colorize(:white)
-    #puts "Please type Y or N"
-    #i = gets.strip.downcase
-    #if i == "y"
-    #  start
-    #elsif i == "n"
-    #  initial
-    ##elsif input == "exit"
-    ##  exit
-    #else
-    #  invalid_entry
-    #end
   end
-
-  #def display_cards_list
-  #  ThothTarot::Card.all.each_with_index do |c, index|
-  #    puts "*******************".colorize(:red)
-  #    puts "#{index}." "#{c.name.upcase}".colorize(:blue)
-  #    puts "*******************".colorize(:red)
-  #  end
-  #end
 
   def invalid_entry
     random = rand(0..5)
@@ -133,7 +84,6 @@ class ThothTarot::CommandLineInterface
     else puts "Say what???".colorize(:red)
     end
     start
-    #menu_loop
   end
 
   def print_card(card)
@@ -148,11 +98,12 @@ class ThothTarot::CommandLineInterface
     puts "⚜✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧⚜".colorize(:blue)
     puts "⚜✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧⚜".colorize(:light_blue)
     puts "                                                   "
-    puts "    Thank you for looking into The Book of Thoth!     ".colorize(:white)
-    puts "                                                   "
-    puts "    We must conquer life by living it to the full.     ".colorize(:magenta)
-    puts "                 Aleister Crowley.                    ".colorize(:magenta)
+    puts "  Thank you for looking into The Book of Thoth!     ".colorize(:white)
+    puts "                                                 "
+    puts "  We must conquer life by living it to the full.     ".colorize(:magenta)
+    puts "               Aleister Crowley.                    ".colorize(:magenta)
     puts "⚜✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧⚜".colorize(:light_blue)
     puts "⚜✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧⚜".colorize(:blue)
+    exit!
   end
 end
