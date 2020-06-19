@@ -12,19 +12,19 @@ class ThothTarot::CommandLineInterface
   def welcome
     puts "⚜✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧⚜".colorize(:blue)
     puts "⚜✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧⚜".colorize(:light_blue)
-    puts "                      ☿️                     ".colorize(:magenta)
-    puts "                                                    "
-    puts "   ☽   🔮 Welcome to Thoth Tarot CLI 🔮   ☾   ".colorize(:cyan)
-    puts "                                    "
-    puts "             🌛🌖🌗🌑🌓🌔🌕🌜                  ".colorize(:white)
-    puts "                                                    "
-    puts "        ♈♉♊♋♌♍♎♏♐♑♒♓          ".colorize(:light_blue)
-    puts "                                    "
-    puts "      'Every man and every woman is a star'".colorize(:cyan)
-    puts "          ✋ 👁 A.C. Book of Thoth ☥          ".colorize(:cyan)
-    puts "                                    "
-    puts "                      ⛤                   ".colorize(:magenta)
-    puts "                                    "
+    puts "                       ☿️                               ".colorize(:magenta)
+    puts "                                                       "
+    puts "    ☽   🔮 Welcome to Thoth Tarot CLI 🔮   ☾          ".colorize(:cyan)
+    puts "                                                       "
+    puts "              🌛🌖🌗🌑🌓🌔🌕🌜                      ".colorize(:white)
+    puts "                                                       "
+    puts "         ♈♉♊♋♌♍♎♏♐♑♒♓                ".colorize(:light_blue)
+    puts "                                                       "
+    puts "       'Every man and every woman is a star'           ".colorize(:cyan)
+    puts "           ✋ 👁 A.C. Book of Thoth ☥                  ".colorize(:cyan)
+    puts "                                                       "
+    puts "                       ⛤                              ".colorize(:magenta)
+    puts "                                                      "
     puts "⚜✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧⚜".colorize(:light_blue)
     puts "⚜✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧⚜".colorize(:blue)
   end
@@ -65,9 +65,11 @@ class ThothTarot::CommandLineInterface
     puts "Cards from #{from_number} to #{from_number+10}"
     puts ""
     ThothTarot::Card.all[from_number, 10].each_with_index do |c, index|
-      puts "*******************************************".colorize(:red)
-      puts "#{index+from_number}".blue.on_red.blink + "#{c.name.upcase}". colorize(:blue)
-      puts "*******************************************".colorize(:red)
+      puts "⚜✦✧✦✧✦✧✦✧✦✧✦✧✦✧⚜".colorize(:red)
+      puts "#{index+from_number}".colorize(:white) + " " + "#{c.name.upcase}". colorize(:blue)
+      puts "⚜✦✧✦✧✦✧✦✧✦✧✦✧✦✧⚜".colorize(:red)
+      puts ""
+      puts ""
     end
   end
 
@@ -87,11 +89,11 @@ class ThothTarot::CommandLineInterface
   end
 
   def print_card(card)
-      puts "************************************".colorize(:red)
-      puts "#{card.name}".upcase.colorize(:blue)
+      puts "⚜✦✧✦✧✦✧✦✧✦✧✦✧✦✧⚜".colorize(:red)
+      puts "     #{card.name}".upcase.colorize(:blue)
       puts " Your card is: #{card.name}".colorize(:light_blue)
       puts " #{card.profile}".colorize(:white)
-      puts "************************************".colorize(:red)
+      puts "⚜✦✧✦✧✦✧✦✧✦✧✦✧✦✧⚜".colorize(:red)
   end
 
   def exit
@@ -102,6 +104,7 @@ class ThothTarot::CommandLineInterface
     puts "                                                 "
     puts " 'We must conquer life by living it to the full.'     ".colorize(:magenta)
     puts "               Aleister Crowley.                    ".colorize(:magenta)
+    puts "                      ⚸                              ".colorize(:white)
     puts "⚜✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧⚜".colorize(:light_blue)
     puts "⚜✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧⚜".colorize(:blue)
     exit!
