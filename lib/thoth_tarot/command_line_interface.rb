@@ -47,13 +47,16 @@ class ThothTarot::CommandLineInterface
       puts "What card you wish to know more about?".colorize(:white)
       puts "Please type a number between 0 and 77".colorize(:white)
       input = gets.strip.downcase
-      while input != "exit" do
+      while input != "exit"
         card_index = input.to_i
         card = ThothTarot::Card.all[card_index]
-        if input.to_i.between?(0, 77)
+        if input.match(/^[a-zA-Z]/)
+          invalid_entry
+        elsif
+          input.to_i.between?(0, 77)
           ThothTarot::Scraper.scrape_card_profile(card)
           print_card(card)
-        else #NEED to check for input in case is a word or anything else!!!
+        else
           invalid_entry
         end
         start
