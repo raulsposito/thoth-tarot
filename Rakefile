@@ -8,7 +8,3 @@
 # this rake rile should look like this
 
 require_relative './config/environment'
-
-def reload!
-  load_all './lib'
-end
