@@ -11,10 +11,6 @@ class ThothTarot::Card
     save
   end
 
-  def self.find_by_index(index)
-    self.all[index-1]
-  end
-
   def save
     @@all << self
   end
