@@ -5,7 +5,7 @@ class ThothTarot::CommandLineInterface
   def run
     welcome
     make_cards
-    display_cards_list
+    display_card_deck
     start
   end
 
@@ -20,8 +20,8 @@ class ThothTarot::CommandLineInterface
     puts "                                                       "
     puts "         ♈♉♊♋♌♍♎♏♐♑♒♓                ".colorize(:light_blue)
     puts "                                                       "
-    puts "       'Every man and every woman is a star'           ".colorize(:cyan)
-    puts "           ✋ 👁 A.C. Book of Thoth ☥                  ".colorize(:cyan)
+    puts "       'Every man and every woman is a star'           ".colorize(:magenta)
+    puts "           ✋ 👁 A.C. Book of Thoth ☥                  ".colorize(:magenta)
     puts "                                                       "
     puts "                       ⛤                              ".colorize(:magenta)
     puts "                                                      "
@@ -33,13 +33,13 @@ class ThothTarot::CommandLineInterface
     ThothTarot::Scraper.scrape_index_page(BASE_PATH)
   end
 
-  def display_cards_list
+  def display_card_deck
+    puts ""
+    puts "Cards are divided as follows:"
+    puts ""
+    sleep 3
     ThothTarot::Card.all.each_with_index do |c, index|
-      puts "⚜✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧⚜".colorize(:red)
-      puts "#{index}".colorize(:white) + " " + "#{c.name.upcase}".colorize(:blue)
-      puts "⚜✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧⚜".colorize(:red)
-      puts ""
-      puts ""
+      puts "⚜✦✧".colorize(:red) + "#{index}".colorize(:white) + " " + "#{c.name.upcase}".colorize(:blue) + "✦✧⚜".colorize(:red)
     end
   end
 
