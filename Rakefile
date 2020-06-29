@@ -5,6 +5,4 @@
 
 #task :default => :spec
 
-# this rake rile should look like this
-
 require_relative './config/environment'

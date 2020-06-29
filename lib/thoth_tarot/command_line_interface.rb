@@ -5,7 +5,6 @@ class ThothTarot::CommandLineInterface
   def run
     welcome
     make_cards
-    #initial
     display_cards_list
     start
   end
@@ -34,13 +33,15 @@ class ThothTarot::CommandLineInterface
     ThothTarot::Scraper.scrape_index_page(BASE_PATH)
   end
 
-  #def initial
-  #  puts "Please select the range you wish to view the card's names listing.".colorize(:white)
-  #  puts "0-9, 10-19, 20-29 and so on...".colorize(:white)
-  #  from_number = gets.strip.to_i
-  #  #Needs logic to validate input
-  #  display_cards_list(from_number)
-  #end
+  def display_cards_list
+    ThothTarot::Card.all.each_with_index do |c, index|
+      puts "⚜✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧⚜".colorize(:red)
+      puts "#{index}".colorize(:white) + " " + "#{c.name.upcase}".colorize(:blue)
+      puts "⚜✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧⚜".colorize(:red)
+      puts ""
+      puts ""
+    end
+  end
 
   def start
       puts " There are 78 Cards in Thoth Tarot. ".colorize(:white)
@@ -63,29 +64,6 @@ class ThothTarot::CommandLineInterface
       end
       exit
   end
-
-  def display_cards_list
-    ThothTarot::Card.all.each_with_index do |c, index|
-      puts "⚜✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧⚜".colorize(:red)
-      puts "#{index}".colorize(:white) + " " + "#{c.name.upcase}".colorize(:blue)
-      puts "⚜✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧⚜".colorize(:red)
-      puts ""
-      puts ""
-    end
-  end
-
-  #def display_cards_list(from_number)
-  #  puts ""
-  #  puts "Cards from #{from_number} to #{from_number+10}"
-  #  puts ""
-  #  ThothTarot::Card.all[from_number, 10].each_with_index do |c, index|
-  #    puts "⚜✦✧✦✧✦✧✦✧✦✧✦✧✦✧⚜".colorize(:red)
-  #    puts "#{index+from_number}".colorize(:white) + " " + "#{c.name.upcase}". colorize(:blue)
-  #    puts "⚜✦✧✦✧✦✧✦✧✦✧✦✧✦✧⚜".colorize(:red)
-  #    puts ""
-  #    puts ""
-  #  end
-  #end
 
   def invalid_entry
     random = rand(0..5)
@@ -115,9 +93,9 @@ class ThothTarot::CommandLineInterface
     puts "⚜✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧⚜".colorize(:light_blue)
     puts "                                                   "
     puts "  Thank you for looking into The Book of Thoth!     ".colorize(:white)
-    puts "                                                 "
-    puts " 'We must conquer life by living it to the full.'     ".colorize(:magenta)
-    puts "               Aleister Crowley.                    ".colorize(:magenta)
+    puts "                                                    "
+    puts "'We must conquer life by living it to the full.'    ".colorize(:magenta)
+    puts "            ✋ 👁 A.C. Book of Thoth ☥               ".colorize(:magenta)
     puts "                      ⚸                              ".colorize(:white)
     puts "⚜✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧⚜".colorize(:light_blue)
     puts "⚜✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧⚜".colorize(:blue)
