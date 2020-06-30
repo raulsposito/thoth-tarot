@@ -15,7 +15,9 @@ class ThothTarot::Card
     @@all << self
   end
 
-  def self.all
+  def self.all #class method
     @@all
   end
 end
+
+# Refactor cards to be listed out alphabetically
