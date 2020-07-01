@@ -6,7 +6,8 @@ class ThothTarot::CommandLineInterface
     welcome
     make_cards
     display_alphabetically
-    #display_card_deck
+    sleep 3
+    display_card_deck
     start
   end
 
@@ -37,25 +38,24 @@ class ThothTarot::CommandLineInterface
   def display_alphabetically
     puts ""
     puts "This is the Thoth Tarot Deck displayed alphabetically"
-    #binding.pry
+    sleep 3
     new_array = []
     ThothTarot::Card.all.each do |card|
       new_array << card.name
     end
-    #binding.pry
     puts new_array.sort
   end
 
 
-  #def display_card_deck
-  #  puts ""
-  #  puts "Cards are divided as follows:"
-  #  puts ""
-  #  sleep 3
-  #  ThothTarot::Card.all.each_with_index do |c, index|
-  #    puts "⚜✦✧".colorize(:red) + "#{index}".colorize(:white) + " " + "#{c.name.upcase}".colorize(:blue) + "✦✧⚜".colorize(:red)
-  #  end
-  #end
+  def display_card_deck
+    puts ""
+    puts "Cards are divided as follows:"
+    puts ""
+    sleep 3
+    ThothTarot::Card.all.each_with_index do |c, index|
+      puts "⚜✦✧".colorize(:red) + "#{index}".colorize(:white) + " " + "#{c.name.upcase}".colorize(:blue) + "✦✧⚜".colorize(:red)
+    end
+  end
 
   def start
       puts " There are 78 Cards in Thoth Tarot. ".colorize(:white)
