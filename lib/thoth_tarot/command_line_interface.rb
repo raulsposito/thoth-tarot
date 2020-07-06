@@ -37,14 +37,25 @@ class ThothTarot::CommandLineInterface
 
   def display_alphabetically
     puts ""
-    puts "This is the Thoth Tarot Deck displayed alphabetically"
+    puts "This is the Thoth Tarot Deck displayed in alphabetical order"
     sleep 3
     new_array = []
     ThothTarot::Card.all.each do |card|
-      new_array << card.name
+      new_array << card.name.upcase
     end
-    puts new_array.sort
+    puts new_array.sort_by { |c| c }
   end
+
+  #def display_alphabetically
+  #  puts ""
+  #  puts "This is the Thoth Tarot Deck displayed alphabetically"
+  #  sleep 3
+  #  new_array = []
+  #  ThothTarot::Card.all.each do |card|
+  #    new_array << card.name
+  #  end
+  #  puts new_array.sort
+  #end
 
 
   def display_card_deck
