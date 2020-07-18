@@ -5,8 +5,7 @@ class ThothTarot::CommandLineInterface
   def run
     welcome
     make_cards
-    display_alphabetically
-    sleep 3
+    #display_alphabetically
     display_card_deck
     start
   end
@@ -35,28 +34,16 @@ class ThothTarot::CommandLineInterface
     ThothTarot::Scraper.scrape_index_page(BASE_PATH)
   end
 
-  def display_alphabetically
-    puts ""
-    puts "This is the Thoth Tarot Deck displayed in alphabetical order"
-    sleep 3
-    new_array = []
-    ThothTarot::Card.all.each do |card|
-      new_array << card.name.upcase
-    end
-    puts new_array.sort_by { |c| c }
-  end
-
   #def display_alphabetically
   #  puts ""
-  #  puts "This is the Thoth Tarot Deck displayed alphabetically"
+  #  puts "This is the Thoth Tarot Deck displayed in alphabetical order"
   #  sleep 3
   #  new_array = []
   #  ThothTarot::Card.all.each do |card|
-  #    new_array << card.name
+  #    new_array << card.name.upcase
   #  end
-  #  puts new_array.sort
+  #  puts new_array.sort_by { |c| c }
   #end
-
 
   def display_card_deck
     puts ""
