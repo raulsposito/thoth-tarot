@@ -2,7 +2,7 @@
 
 Welcome to Thoth Tarot Ruby Gem! 
 
-![](Thoth.jpg)
+![](Thoth.png)
 
 This is a Gem created to consult Thoth Tarot card readings using the CLI.
 
