@@ -4,6 +4,7 @@ Welcome to Thoth Tarot Ruby Gem!
 
 ⚜✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧⚜
 ⚜✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧⚜
+
                        ☿️                               
                         
     ☽   🔮 Welcome to Thoth Tarot CLI 🔮   ☾          
