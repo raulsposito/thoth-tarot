@@ -2,6 +2,25 @@
 
 Welcome to Thoth Tarot Ruby Gem! 
 
+⚜✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧⚜
+⚜✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧⚜
+
+                       ☿️                               
+                        
+    ☽   🔮 Welcome to Thoth Tarot CLI 🔮   ☾          
+                        
+              🌛🌖🌗🌑🌓🌔🌕🌜                      
+                        
+         ♈♉♊♋♌♍♎♏♐♑♒♓                
+                        
+       'Every man and every woman is a star'           
+           ✋ 👁 A.C. Book of Thoth ☥                  
+                        
+                       ⛤                              
+                      
+⚜✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧⚜
+⚜✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧⚜
+
 This is a Gem created to consult Thoth Tarot card readings using the CLI.
 
 In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/thoth_tarot`. To experiment with that code, run `bin/console` for an interactive prompt.
