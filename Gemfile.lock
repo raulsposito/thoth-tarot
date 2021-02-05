@@ -6,7 +6,11 @@ GEM
     diff-lcs (1.4.4)
     method_source (1.0.0)
     mini_portile2 (2.5.0)
+<<<<<<< HEAD
     nokogiri (1.11.1)
+=======
+    nokogiri (1.11.0)
+>>>>>>> 06374961a74edf8a2fbd5a8b8202046f6efcac8a
       mini_portile2 (~> 2.5.0)
       racc (~> 1.4)
     pry (0.13.1)
@@ -33,7 +37,11 @@ PLATFORMS
 
 DEPENDENCIES
   colorize (~> 0.8.1)
+<<<<<<< HEAD
   nokogiri (>= 1.11.0)
+=======
+  nokogiri (~> 1.11)
+>>>>>>> 06374961a74edf8a2fbd5a8b8202046f6efcac8a
   pry (~> 0.13.1)
   rake (~> 12.0)
   rspec (~> 3.0)
